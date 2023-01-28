@@ -11,6 +11,7 @@ class DashboardBody extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            height: MediaQuery.of(context).size.height * 0.1,
             color: Colors.white,
             padding: const EdgeInsets.all(10),
             child: const TextField(
@@ -34,7 +35,7 @@ class DashboardBody extends StatelessWidget {
                 CategoryList(),
                 SingleChildScrollView(
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.7,
+                    height: MediaQuery.of(context).size.height * 0.734,
                     child: GridView(
                       padding: const EdgeInsets.all(10),
                       gridDelegate:
