@@ -47,7 +47,10 @@ class Item extends StatelessWidget {
                           semanticLabel: "20 mins",
                           size: 18,
                         ),
-                        Text("20 mins")
+                        Text(
+                          "20 mins",
+                          style: TextStyle(color: Colors.green),
+                        )
                       ],
                     ),
                     const Padding(

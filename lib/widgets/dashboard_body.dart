@@ -25,8 +25,7 @@ class DashboardBody extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Color.fromARGB(223, 163, 212, 209),
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+                topLeft: Radius.circular(40),
               ),
             ),
             // height: 00,
