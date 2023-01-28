@@ -37,13 +37,38 @@ class Item extends StatelessWidget {
                   ),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
-                      children: [
-                        const Icon(Icons.timer_outlined),
-                        Text("20 min")
+                      children: const [
+                        Icon(
+                          Icons.timer_outlined,
+                          color: Colors.green,
+                          semanticLabel: "20 mins",
+                          size: 18,
+                        ),
+                        Text("20 mins")
                       ],
-                    )
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 5, right: 5),
+                    ),
+                    Row(
+                      children: const [
+                        Icon(
+                          Icons.star_rate_outlined,
+                          semanticLabel: "50",
+                          size: 18,
+                          color: Color.fromARGB(255, 221, 206, 68),
+                        ),
+                        Text(
+                          "50",
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 221, 206, 68),
+                          ),
+                        )
+                      ],
+                    ),
                   ],
                 ),
                 Container(
