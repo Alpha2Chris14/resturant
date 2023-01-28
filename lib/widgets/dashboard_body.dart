@@ -38,8 +38,9 @@ class DashboardBody extends StatelessWidget {
                     height: MediaQuery.of(context).size.height * 0.7,
                     child: GridView(
                       padding: const EdgeInsets.all(10),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisExtent: 260,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        mainAxisExtent: 230,
                         childAspectRatio: 1 / 2,
                         crossAxisCount: 2,
                         mainAxisSpacing: 20,
