@@ -3,7 +3,8 @@ import 'package:menu/widgets/categoriesList.dart';
 import 'package:menu/widgets/item.dart';
 
 class DashboardBody extends StatelessWidget {
-  const DashboardBody({super.key});
+  final double appBarHeight;
+  DashboardBody(this.appBarHeight);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class DashboardBody extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: (MediaQuery.of(context).size.height * 0.2) - appBarHeight,
             color: Colors.white,
             padding: const EdgeInsets.all(10),
             child: const TextField(
@@ -35,7 +36,8 @@ class DashboardBody extends StatelessWidget {
                 CategoryList(),
                 SingleChildScrollView(
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.734,
+                    height: (MediaQuery.of(context).size.height * 0.7) -
+                        appBarHeight,
                     child: GridView(
                       padding: const EdgeInsets.all(10),
                       gridDelegate:
