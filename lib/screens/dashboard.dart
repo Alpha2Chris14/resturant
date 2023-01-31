@@ -44,6 +44,7 @@ class Dashboard extends StatelessWidget {
       body: DashboardBody(appBar.preferredSize.height),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite), label: "Favorite"),
           BottomNavigationBarItem(
