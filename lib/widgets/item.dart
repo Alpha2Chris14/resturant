@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/meal.dart';
 
 class Item extends StatelessWidget {
-  const Item({super.key});
+  final int id;
+  const Item({required this.id});
 
   @override
   Widget build(BuildContext context) {
+    var meal = Provider.of<Meal>(context);
+    // print("Hello");
+    // print(meal.imageUrl);
     return Card(
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -15,7 +22,7 @@ class Item extends StatelessWidget {
             borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(5), topRight: Radius.circular(10)),
             child: Image.network(
-              "https://nkechiajaeroh.com/wp-content/uploads/2020/12/Nigerian-fried-rice-recipe-main-photo-3.jpg",
+              meal.imageUrl,
               height: 130,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -30,9 +37,10 @@ class Item extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.centerLeft,
-                  child: const Text(
-                    "Fried Rice and Chicken",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  child: Text(
+                    meal.title,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 12),
                     textDirection: TextDirection.ltr,
                   ),
                 ),
@@ -40,16 +48,16 @@ class Item extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Row(
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.timer_outlined,
                           color: Colors.green,
                           semanticLabel: "20 mins",
                           size: 18,
                         ),
                         Text(
-                          "20 mins",
-                          style: TextStyle(color: Colors.green),
+                          "${meal.duration} mins",
+                          style: const TextStyle(color: Colors.green),
                         )
                       ],
                     ),
@@ -57,16 +65,16 @@ class Item extends StatelessWidget {
                       padding: EdgeInsets.only(left: 5, right: 5),
                     ),
                     Row(
-                      children: const [
+                      children: [
                         Icon(
                           Icons.star_rate_outlined,
-                          semanticLabel: "50",
+                          semanticLabel: "${meal.ratingCount}",
                           size: 18,
-                          color: Color.fromARGB(255, 221, 206, 68),
+                          color: const Color.fromARGB(255, 221, 206, 68),
                         ),
                         Text(
-                          "50",
-                          style: TextStyle(
+                          "${meal.ratingCount}",
+                          style: const TextStyle(
                             color: Color.fromARGB(255, 221, 206, 68),
                           ),
                         )
@@ -77,7 +85,7 @@ class Item extends StatelessWidget {
                 Container(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "25.00\$",
+                      "${meal.price} \$",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

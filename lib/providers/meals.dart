@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../models/meal.dart';
+import 'meal.dart';
 
 class Meals extends ChangeNotifier {
   final menu = [
@@ -130,4 +130,8 @@ class Meals extends ChangeNotifier {
       duration: 30,
     ),
   ];
+
+  List get menuItem {
+    return [...menu];
+  }
 }

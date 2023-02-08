@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:menu/providers/meals.dart';
 import 'package:menu/widgets/dashboard_body.dart';
 import 'package:menu/widgets/favourite.dart';
+import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -62,22 +64,25 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar,
-      body: pages[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Color.fromARGB(224, 6, 184, 172),
-        onTap: _selectedTab,
-        currentIndex: currentIndex,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), label: "Favorite"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month_outlined), label: "Calender"),
-          // BottomNavigationBarItem(icon: Icon(Icons.account_box), label: "user"),
-        ],
+    return ChangeNotifierProvider(
+      create: (context) => Meals(),
+      child: Scaffold(
+        appBar: appBar,
+        body: pages[currentIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: Colors.grey,
+          selectedItemColor: Color.fromARGB(224, 6, 184, 172),
+          onTap: _selectedTab,
+          currentIndex: currentIndex,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), label: "Favorite"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.calendar_month_outlined), label: "Calender"),
+            // BottomNavigationBarItem(icon: Icon(Icons.account_box), label: "user"),
+          ],
+        ),
       ),
     );
   }

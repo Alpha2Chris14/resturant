@@ -1,4 +1,6 @@
-class Meal {
+import 'package:flutter/cupertino.dart';
+
+class Meal extends ChangeNotifier {
   final int id;
   final String title;
   final String imageUrl;

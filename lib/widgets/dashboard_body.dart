@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:menu/providers/meals.dart';
 import 'package:menu/widgets/categoriesList.dart';
 import 'package:menu/widgets/item.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/meal.dart';
 
 class DashboardBody extends StatelessWidget {
   final double appBarHeight;
@@ -8,6 +12,7 @@ class DashboardBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final meals = Provider.of<Meals>(context).menuItem;
     return Container(
       child: Column(
         children: [
@@ -55,14 +60,14 @@ class DashboardBody extends StatelessWidget {
                       //   crossAxisSpacing: 20,
                       //   mainAxisSpacing: 20,
                       // ),
-                      children: [
-                        Item(),
-                        Item(),
-                        Item(),
-                        Item(),
-                        Item(),
-                        Item(),
-                      ],
+                      children: meals.map((meal) {
+                        return ChangeNotifierProvider.value(
+                          value: meal as Meal,
+                          child: Item(
+                            id: meal.id,
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ),
                 ),
