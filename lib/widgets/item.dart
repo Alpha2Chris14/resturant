@@ -38,7 +38,7 @@ class Item extends StatelessWidget {
                 Container(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    meal.title,
+                    meal.title, //changes
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 12),
                     textDirection: TextDirection.ltr,
