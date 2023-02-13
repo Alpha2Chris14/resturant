@@ -86,7 +86,7 @@ class Item extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "${meal.price} \$",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
